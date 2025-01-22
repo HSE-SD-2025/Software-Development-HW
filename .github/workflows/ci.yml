@@ -1,0 +1,44 @@
+name: C++ CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup C++17
+      uses: actions/setup-cpp@v2
+      with:
+        compiler: 'gcc'
+        cpp-version: '17'
+        install: true
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y make cmake clang-tidy cppcheck
+
+    - name: Build
+      run: cmake -S . -B build && cmake --build build
+
+    - name: Run clang-tidy
+      run: |
+        cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        clang-tidy -p build $(find . -name '*.cpp' -print)
+
+    - name: Run cppcheck
+      run: cppcheck --enable=all --std=c++17 --platform=unix64 --inconclusive --quiet .
+
+    - name: Run Tests
+      run: |
+        pushd build
+        ctest --output-on-failure
+        popd
