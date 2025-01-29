@@ -25,15 +25,15 @@ jobs:
       - name: Build with CMake
         run: |
           cd build
-          cmake -DCMAKE_BUILD_TYPE=Release ..
+          cmake -DCMAKE_BUILD_TYPE=Release ../solution
           cmake --build .
 
       - name: Run CppCheck
-        run: cppcheck --enable=all --inconclusive --std=c++17 ./src ./include
+        run: cppcheck --enable=all --inconclusive --std=c++17 ./solution/src ./solution/include
 
       - name: Run clang-tidy
         run: |
-          clang-tidy src/*.cpp -- -I./include -std=c++17
+          clang-tidy solution/src/*.cpp -- -I./solution/include -std=c++17
 
       - name: Run Tests
         run: |
