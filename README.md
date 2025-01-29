@@ -19,7 +19,7 @@
 Склонируйте репозиторий и соберите проект с помощью CMake:
 ```
 git clone git@github.com:HSE-SD-2025/Software-Development-HW.git
-cd poisk-kratchaishikh-putey
+cd Software-Development-HW
 mkdir build
 cd build
 cmake ..
