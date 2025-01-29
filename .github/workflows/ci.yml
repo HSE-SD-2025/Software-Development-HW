@@ -1,0 +1,50 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up C++ Tools
+        uses: actions/setup-cpp@v1
+        with:
+          compiler: clang
+          cpp-version: '17'
+
+      - name: Install Dependencies
+        run: sudo apt-get update && sudo apt-get install -y cppcheck valgrind
+
+      - name: Create Build Directory
+        run: mkdir build
+
+      - name: Build with CMake
+        run: |
+          cd build
+          cmake ..
+          cmake --build .
+
+      - name: Run CppCheck
+        run: cppcheck --enable=all --project=build/compile_commands.json --quiet
+
+      - name: Run clang-tidy
+        run: |
+          clang-tidy -p build src/*.cpp -- -I./include -std=c++17
+
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure
+
+      - name: Run Valgrind on Tests
+        run: |
+          cd build
+          valgrind --leak-check=full --error-exitcode=1 ./GraphAlgorithmTests
