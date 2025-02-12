@@ -35,9 +35,10 @@ TEST_CASE("Brute Force Algorithm") {
   SUBCASE("Shortest Path A to C") {
     auto path = bruteForce.find_shortest_path(graph, v1, v3);
     REQUIRE(path.size() > 0);
-    CHECK(path.size() == 2);
+    CHECK(path.size() == 3);
     CHECK(path[0].get_name() == "A");
-    CHECK(path[1].get_name() == "C");
+    CHECK(path[1].get_name() == "B");
+    CHECK(path[2].get_name() == "C");
   }
 
   SUBCASE("Shortest Path B to D") {
