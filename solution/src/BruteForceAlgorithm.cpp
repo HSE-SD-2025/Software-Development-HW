@@ -1,4 +1,5 @@
 #include "BruteForceAlgorithm.h"
+#include <climits>
 
 std::vector<Vertex> BruteForceAlgorithm::find_shortest_path(
   const Graph &graph,
