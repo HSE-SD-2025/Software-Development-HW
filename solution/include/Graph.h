@@ -4,7 +4,11 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
-
+class Vertex;
+template<>
+struct std::hash<Vertex> {
+  size_t operator()(const Vertex &v) const noexcept;
+};
 class Vertex {
   int id;
   std::string name;
@@ -48,10 +52,5 @@ class Graph {
     [[nodiscard]] std::vector<Vertex> get_neighbors(const Vertex &vertex) const;
     [[nodiscard]] std::vector<Edge> get_neighbor_edges(const Vertex &vertex) const;
 };
-template<>
-struct std::hash<Vertex> {
-  size_t operator()(const Vertex &v) const noexcept {
-    return hash<int>()(v.get_id()) ^ hash<string>()(v.get_name());
-  }
-};
+
 #endif // GRAPH_H

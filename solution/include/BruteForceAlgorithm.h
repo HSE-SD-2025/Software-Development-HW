@@ -4,11 +4,13 @@
 #include <queue>
 
 class BruteForceAlgorithm : public GraphAlgorithm {
-  void findAllPaths(const Graph& graph, const Vertex& current, const Vertex& end,
-                     std::vector<Vertex>& currentPath, std::unordered_map<Vertex, bool>& visited,
-                     std::vector<std::vector<Vertex>>& allPaths);
+  void findAllPaths(const Graph &graph,
+                    const Vertex &current,
+                    const Vertex &end,
+                    std::vector<Edge> &currentPath,
+                    std::unordered_map<Vertex, bool> &visited,
+                    std::vector<std::vector<Edge>> &allPaths);
 
-  std::vector<Vertex> getNeighbors(const Graph& graph, const Vertex& vertex) const;
   public:
   std::vector<Vertex> find_shortest_path(const Graph& graph, const Vertex& start, const Vertex& end) override;
 };
