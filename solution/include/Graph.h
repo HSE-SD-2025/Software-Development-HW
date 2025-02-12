@@ -37,6 +37,7 @@ class Edge {
 class Graph {
   std::vector<Vertex> vertices;
   std::vector<Edge> edges;
+  std::unordered_map<Vertex, std::vector<Edge>> vertex_map;
 
   public:
     [[nodiscard]] const std::vector<Vertex> &get_vertices() const;
@@ -45,6 +46,7 @@ class Graph {
     void add_vertex(const Vertex &vertex);
     void add_edge(const Edge &edge);
     [[nodiscard]] std::vector<Vertex> get_neighbors(const Vertex &vertex) const;
+    [[nodiscard]] std::vector<Edge> get_neighbor_edges(const Vertex &vertex) const;
 };
 template<>
 struct std::hash<Vertex> {

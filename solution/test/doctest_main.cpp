@@ -2,3 +2,4 @@
 #include "doctest.h"
 #include "Graph.h"
 #include "DijkstraAlgorithm.h"
+#include "BruteForceAlgorithm.h"

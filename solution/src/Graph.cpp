@@ -34,10 +34,12 @@ int Edge::get_weight() const {
 
 void Graph::add_vertex(const Vertex& vertex) {
   vertices.push_back(vertex);
+  vertex_map[vertex] = std::vector<Edge>();
 }
 
 void Graph::add_edge(const Edge& edge) {
   edges.push_back(edge);
+  vertex_map[edge.get_source()].push_back(edge);
 }
 
 const std::vector<Vertex>& Graph::get_vertices() const {
@@ -50,10 +52,13 @@ const std::vector<Edge>& Graph::get_edges() const {
 
 std::vector<Vertex> Graph::get_neighbors(const Vertex& vertex) const {
   std::vector<Vertex> neighbors;
-  for (const auto& edge : edges) {
+  for (const auto& edge : vertex_map.at(vertex)) {
     if (edge.get_source() == vertex) {
       neighbors.push_back(edge.get_destination());
     }
   }
   return neighbors;
+}
+std::vector<Edge> Graph::get_neighbor_edges(const Vertex& vertex) const {
+  return vertex_map.at(vertex);
 }
