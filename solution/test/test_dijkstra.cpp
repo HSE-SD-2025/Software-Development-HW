@@ -1,4 +1,3 @@
-
 #include "DijkstraAlgorithm.h"
 #include "doctest.h"
 

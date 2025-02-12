@@ -10,6 +10,7 @@ set(SOURCES
         src/Graph.cpp
         src/BruteForceAlgorithm.cpp
         src/DijkstraAlgorithm.cpp
+        src/BellmanFordAlgorithm.cpp
 )
 
 add_library(GraphAlgorithmLibrary STATIC ${SOURCES})
@@ -22,6 +23,7 @@ set(TEST_SOURCES
         test/doctest_main.cpp
         test/test_graph.cpp
         test/test_dijkstra.cpp
+        test/test_bellmanford.cpp
 )
 
 # Add test executable
