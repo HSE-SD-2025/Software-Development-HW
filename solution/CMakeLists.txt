@@ -34,3 +34,6 @@ target_link_libraries(GraphAlgorithmTests GraphAlgorithmLibrary)
 
 # Add test
 add_test(NAME GraphAlgorithmTests COMMAND GraphAlgorithmTests)
+
+add_executable(GraphAlgorithmComparingTest test/comparing_test.cpp)
+target_link_libraries(GraphAlgorithmComparingTest GraphAlgorithmLibrary)
