@@ -62,6 +62,10 @@ int main(int argc, char *argv[]) {
   graph.add_edge(Edge(vertex2, vertex6, 123));
   graph.add_edge(Edge(vertex7, vertex6, 123));
   graph.add_edge(Edge(vertex0, vertex3, 1));
+  graph.add_edge(Edge(vertex6, vertex5, 12));
+  graph.add_edge(Edge(vertex6, vertex1, 12));
+
+
 
 
 
