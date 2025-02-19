@@ -52,7 +52,7 @@ class Graph {
   public:
     [[nodiscard]] const std::vector<Vertex> &get_vertices() const;
     [[nodiscard]] const std::vector<Edge> &get_edges() const;
-    [[nodiscard]] const Edge &get_edge_between(const Vertex &first, const Vertex &second) const;
+    const Edge &get_edge_between( Vertex first,  Vertex second);
 
 
     void add_vertex(const Vertex &vertex);

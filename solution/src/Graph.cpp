@@ -50,6 +50,9 @@ const std::vector<Vertex> &Graph::get_vertices() const {
 const std::vector<Edge> &Graph::get_edges() const {
   return edges;
 }
+const Edge & Graph::get_edge_between(Vertex first,  Vertex second)  {
+  return pairs_to_edges[std::make_pair<Vertex,Vertex>(std::move(first),std::move(second))];
+}
 
 std::vector<Vertex> Graph::get_neighbors(const Vertex &vertex) const {
   std::vector<Vertex> neighbors;
