@@ -1,6 +1,7 @@
+#include "doctest.h"
+#include <stdexcept>
 #include "JohnsonAlgorithm.h"
 #include "Graph.h"
-#include "doctest.h"
 
 TEST_CASE("Johnson Algorithm") {
     Graph graph;
