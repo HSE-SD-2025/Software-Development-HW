@@ -29,21 +29,13 @@ std::vector<Vertex> DijkstraAlgorithm::find_shortest_path(const Graph& graph, co
       break;
     }
 
-    for (const auto& neighbor : graph.get_neighbors(current)) {
+    for (const auto& neighbor_edge : graph.get_neighbor_edges(current)) {
       int weight = -1;
-      for (const auto& edge : graph.get_edges()) {
-        if (edge.get_source() == current && edge.get_destination() == neighbor) {
-          weight = edge.get_weight();
-          break;
-        }
-      }
-      if (weight == -1) continue;
-
       int alt = distances[current] + weight;
-      if (alt < distances[neighbor]) {
-        distances[neighbor] = alt;
-        previous[neighbor] = current;
-        pq.emplace(alt, neighbor);
+      if (alt < distances[neighbor_edge.get_destination()]) {
+        distances[neighbor_edge.get_destination()] = alt;
+        previous[neighbor_edge.get_destination()] = current;
+        pq.emplace(alt, neighbor_edge.get_destination());
       }
     }
   }
