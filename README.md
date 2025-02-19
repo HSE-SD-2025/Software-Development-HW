@@ -65,6 +65,21 @@ int main() {
 
 В библиотеке есть абстрактный класс - ```GraphAlgorithm```, который имеет единственный метод -  ```std::vector<Vertex> find_shortest_path(const Graph& graph, const Vertex& start, const Vertex& end)```. Для добавления нового алгоритма в библиотеку достаточно просто отнаследоваться от этого класса.
 
+## Сравнение по времени и памяти различных алгоритмов
+Сравнение на графе из 7 вершин.
+* Djikstra. Время: 7.8292e-05 seconds. Память: 1.3 Mib
+* AStar. Время: 0.000194333 seconds. Память: 1.3 Mib
+* BruteForce. Время: 3.0333e-05 seconds. Память: 1.2 Mib
+* BellmanFord. Время: 0.00023275 seconds. Память: 1.3 Mib
+* Johnson. Время: 0.000935292 seconds. Память: 1.3 Mib
+
+Сравнение на графе из 30 вершин.
+* Djikstra. Время: 0.000255083 seconds. Память: 2.8 Mib
+* AStar. Время: 0.000396625 seconds. Память: 2.3 Mib
+* BruteForce. Время: 0.000265375 seconds. Память: 2.3 Mib
+* BellmanFord. Время: 0.00100925 seconds. Память: 2.8 Mib
+* Johnson. Время: 0.0429215 seconds. Память: 3.0 Mib
+
 ## Лицензия
 
 Проект распространяется под лицензией MIT. См. файл [`LICENSE`](LICENSE) для получения дополнительной информации.
