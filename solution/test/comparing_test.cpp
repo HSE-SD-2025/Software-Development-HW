@@ -6,6 +6,7 @@
 #include "DijkstraAlgorithm.h"
 #include "BellmanFordAlgorithm.h"
 #include "BruteForceAlgorithm.h"
+#include "JohnsonAlgorithm.h"
 #include <typeinfo>
 
 #define time_point std::chrono::time_point<std::chrono::high_resolution_clock>
@@ -20,7 +21,8 @@ struct Benchmark {
 
         std::chrono::duration<double> duration = end_time - start_time;
 
-        std::cout << typeid(algo).name();
+        std::string algorithmName = static_cast<std::string>(typeid(algo).name()).substr(2);
+        std::cout << algorithmName;
 
         std::cout << "\nExecution time: " << duration.count() << " seconds" << std::endl;
 
@@ -28,7 +30,7 @@ struct Benchmark {
     }
 };
 
-int main() {
+int main(int argc, char* argv[]) {
     Graph graph;
 
     Vertex vertex0(0, "A"), vertex1(1, "B"), vertex2(2, "C"), vertex3(3, "D");
@@ -46,23 +48,25 @@ int main() {
     
     Benchmark benchmark;
 
-    DijkstraAlgorithm dijkstra;
-
-    benchmark.track_execution_time(graph, vertex0, vertex3, dijkstra);
-
-    AStarAlgorithm astar;
-
-    benchmark.track_execution_time(graph, vertex0, vertex3, astar);
-
-    BruteForceAlgorithm bruteForce;
-
-    benchmark.track_execution_time(graph, vertex0, vertex3, bruteForce);
-
-    BellmanFordAlgorithm bellmanford;
-
-    benchmark.track_execution_time(graph, vertex0, vertex3, bellmanford);
-
-    
-
+    if (std::strcmp(argv[1], "Dijkstra") == 0) {
+        DijkstraAlgorithm dijkstra;
+        benchmark.track_execution_time(graph, vertex0, vertex3, dijkstra);
+    } else if (std::strcmp(argv[1], "AStar") == 0) {
+        AStarAlgorithm astar;
+        benchmark.track_execution_time(graph, vertex0, vertex3, astar);
+    } else if (std::strcmp(argv[1], "BruteForce") == 0) {
+        BruteForceAlgorithm bruteForce;
+        benchmark.track_execution_time(graph, vertex0, vertex3, bruteForce);
+    } else if (std::strcmp(argv[1], "BellmanFord") == 0) {
+        BellmanFordAlgorithm bellmanford;
+        benchmark.track_execution_time(graph, vertex0, vertex3, bellmanford);
+    } else if (std::strcmp(argv[1], "Johnson") == 0) {
+        JohnsonAlgorithm johnson;
+        benchmark.track_execution_time(graph, vertex0, vertex3, johnson);
+    } else if (argc > 1) {
+        std::cout << "Undefined algorithm with name: " << argv[1];
+    } else {
+        std::cout << "Need to specify algorithm name";
+    }
     return 0;
 }
