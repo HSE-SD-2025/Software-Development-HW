@@ -1,0 +1,195 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15" version="26.0.14">
+  <diagram name="Page-1" id="MCl1-eREKRpEPSuyr52Q">
+    <mxGraphModel dx="1774" dy="1057" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NFSUYhE9E-6En8fXDCop-192" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-197" target="NFSUYhE9E-6En8fXDCop-218">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="1220" />
+              <mxPoint x="690" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-193" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-197" target="NFSUYhE9E-6En8fXDCop-220">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-197" target="NFSUYhE9E-6En8fXDCop-225">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="1220" />
+              <mxPoint x="690" y="1310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-195" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-197" target="NFSUYhE9E-6En8fXDCop-206">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-196" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-197" target="NFSUYhE9E-6En8fXDCop-235">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="1220" />
+              <mxPoint x="450" y="1490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-197" value="Ремонтник" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1190" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-198" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-200" target="NFSUYhE9E-6En8fXDCop-236">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-199" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-200" target="NFSUYhE9E-6En8fXDCop-202">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-200" value="Диспетчер" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1480" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-202" target="NFSUYhE9E-6En8fXDCop-206">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-202" value="Отправить автомобиль в ремонтную зону" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-203" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-206" target="NFSUYhE9E-6En8fXDCop-208">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-204" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-206" target="NFSUYhE9E-6En8fXDCop-210">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-205" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-206" target="NFSUYhE9E-6En8fXDCop-212">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-206" value="Регистрация дефекта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-207" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-208" target="NFSUYhE9E-6En8fXDCop-214">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-208" value="Указание места дефекта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="557.5" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-209" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-210">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="910.1764705882354" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-210" value="Определение возможной причины дефекта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="557.5" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-211" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-212" target="NFSUYhE9E-6En8fXDCop-214">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-212" value="Ввод номера автомобиля и даты поступления" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="557.5" y="980" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-213" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-214" target="NFSUYhE9E-6En8fXDCop-216">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-214" value="Редактирование и подтверждение данных дефекта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-215" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-216" target="NFSUYhE9E-6En8fXDCop-218">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-216" value="Назначение ремонта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1010" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-217" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-218" target="NFSUYhE9E-6En8fXDCop-220">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-218" value="Регистрация начала ремонта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-219" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-220" target="NFSUYhE9E-6En8fXDCop-225">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-220" value="Устранение дефекта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-221" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-225" target="NFSUYhE9E-6En8fXDCop-227">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="1360" />
+              <mxPoint x="565" y="1360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-222" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-225" target="NFSUYhE9E-6En8fXDCop-229">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-223" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-225" target="NFSUYhE9E-6En8fXDCop-231">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-224" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-225" target="NFSUYhE9E-6En8fXDCop-233">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="1360" />
+              <mxPoint x="1035" y="1360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-225" value="Регистрация завершения ремонта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-226" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-227" target="NFSUYhE9E-6En8fXDCop-235">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="565" y="1450" />
+              <mxPoint x="800" y="1450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-227" value="Фиксация окончания ремонта в системе" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="505" y="1370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-228" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-229">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-229" value="Указание времени завершения" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-230" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-231" target="NFSUYhE9E-6En8fXDCop-235">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-231" value="Указание рабочего, выполнявшего ремонт" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="817.5" y="1370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-232" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-233">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="800" y="1460" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1035" y="1450" />
+              <mxPoint x="801" y="1450" />
+              <mxPoint x="801" y="1460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-233" value="Указание ремонтного места" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="975" y="1370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-234" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-235" target="NFSUYhE9E-6En8fXDCop-236">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-235" value="Проверка устранения дефекта" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-236" value="Возврат автомобиля на конвейер" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-237" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-239" target="NFSUYhE9E-6En8fXDCop-214">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-238" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NFSUYhE9E-6En8fXDCop-239" target="NFSUYhE9E-6En8fXDCop-216">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NFSUYhE9E-6En8fXDCop-239" value="Бригадир" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="920" y="880" width="30" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
