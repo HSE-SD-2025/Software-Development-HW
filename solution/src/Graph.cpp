@@ -1,6 +1,5 @@
 #include "Graph.h"
-#include <algorithm>
-
+#include <stdexcept>
 Vertex::Vertex(int id, const std::string &name) : id(id), name(name) {
 }
 
