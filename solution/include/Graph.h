@@ -9,6 +9,10 @@ template<>
 struct std::hash<Vertex> {
   size_t operator()(const Vertex &v) const noexcept;
 };
+template<>
+struct std::hash<std::pair<Vertex, Vertex> > {
+  size_t operator()(const std::pair<Vertex, Vertex> &v) const noexcept;
+};
 class Vertex {
   int id;
   std::string name;
@@ -28,11 +32,12 @@ class Vertex {
 class Edge {
   Vertex source;
   Vertex destination;
-  int weight;
+  int weight{};
 
   public:
     Edge(Vertex source, Vertex destination, int weight);
-
+    Edge() = default;
+    Edge(const Edge &other) = default;
     [[nodiscard]] Vertex get_source() const;
     [[nodiscard]] Vertex get_destination() const;
     [[nodiscard]] int get_weight() const;
@@ -41,11 +46,14 @@ class Edge {
 class Graph {
   std::vector<Vertex> vertices;
   std::vector<Edge> edges;
-  std::unordered_map<Vertex, std::vector<Edge>> vertex_map;
+  std::unordered_map<Vertex, std::vector<Edge> > vertex_map;
+  std::unordered_map<std::pair<Vertex, Vertex>, Edge> pairs_to_edges;
 
   public:
     [[nodiscard]] const std::vector<Vertex> &get_vertices() const;
     [[nodiscard]] const std::vector<Edge> &get_edges() const;
+    [[nodiscard]] const Edge &get_edge_between(const Vertex &first, const Vertex &second) const;
+
 
     void add_vertex(const Vertex &vertex);
     void add_edge(const Edge &edge);

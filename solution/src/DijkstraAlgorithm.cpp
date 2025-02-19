@@ -2,7 +2,7 @@
 #include <limits>
 #include <queue>
 #include <unordered_map>
-#include <algorithm>
+#include <stdexcept>
 
 struct CompareDistance {
   bool operator()(const std::pair<int, Vertex>& a, const std::pair<int, Vertex>& b) {
