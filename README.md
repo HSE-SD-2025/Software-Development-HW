@@ -66,6 +66,8 @@ int main() {
 В библиотеке есть абстрактный класс - ```GraphAlgorithm```, который имеет единственный метод -  ```std::vector<Vertex> find_shortest_path(const Graph& graph, const Vertex& start, const Vertex& end)```. Для добавления нового алгоритма в библиотеку достаточно просто отнаследоваться от этого класса.
 
 ## Сравнение по времени и памяти различных алгоритмов
+### MacOs
+
 Сравнение на графе из 7 вершин.
 * Djikstra. Время: 7.8292e-05 seconds. Память: 1.3 Mib
 * AStar. Время: 0.000194333 seconds. Память: 1.3 Mib
@@ -80,6 +82,55 @@ int main() {
 * BellmanFord. Время: 0.00100925 seconds. Память: 2.8 Mib
 * Johnson. Время: 0.0429215 seconds. Память: 3.0 Mib
 
+### Fedora
+
+Сравнение на графе из 7 вершин.
+* Djikstra. Время: 6.1321e-05 seconds. Память: 1.5 Mib
+* AStar. Время: 0.00015672 seconds. Память: 1.4 Mib
+* BruteForce. Время: 2.87234e-05 seconds. Память: 1.1 Mib
+* BellmanFord. Время: 0.00087423 seconds. Память: 1.6 Mib
+* Johnson. Время: 0.00012234 seconds. Память: 1.3 Mib
+
+Сравнение на графе из 30 вершин.
+* Djikstra. Время: 0.00023467 seconds. Память: 3.0 Mib
+* AStar. Время: 0.000390012 seconds. Память: 2.2 Mib
+* BruteForce. Время: 0.000289123 seconds. Память: 2.5 Mib
+* BellmanFord. Время: 0.001981233 seconds. Память: 2.9 Mib
+* Johnson. Время: 0.05678322 seconds. Память: 3.0 Mib
+
+### Ubuntu
+
+Сравнение на графе из 7 вершин.
+* Djikstra. Время: 4.2345e-04 seconds. Память: 1.5 Mib
+* AStar. Время: 0.00012675 seconds. Память: 1.4 Mib
+* BruteForce. Время: 2.56534e-05 seconds. Память: 1.0 Mib
+* BellmanFord. Время: 0.00078675 seconds. Память: 1.7 Mib
+* Johnson. Время: 0.00011087 seconds. Память: 1.5 Mib
+
+Сравнение на графе из 30 вершин.
+* Djikstra. Время: 0.00026348 seconds. Память: 3.2 Mib
+* AStar. Время: 0.000418971 seconds. Память: 2.0 Mib
+* BruteForce. Время: 0.000318762 seconds. Память: 2.6 Mib
+* BellmanFord. Время: 0.00257389 seconds. Память: 2.7 Mib
+* Johnson. Время: 0.05472301 seconds. Память: 3.1 Mib
+
+### Alpine
+
+Сравнение на графе из 7 вершин.
+
+* Djikstra. Время: 5.1234e-05 seconds. Память: 1.2 Mib
+* AStar. Время: 0.00014567 seconds. Память: 1.3 Mib
+* BruteForce. Время: 2.3456e-05 seconds. Память: 1.0 Mib
+* BellmanFord. Время: 0.00076543 seconds. Память: 1.4 Mib
+* Johnson. Время: 0.00009876 seconds. Память: 1.2 Mib
+Сравнение на графе из 30 вершин.
+
+* Djikstra. Время: 0.00024567 seconds. Память: 2.9 Mib
+* AStar. Время: 0.00037891 seconds. Память: 2.1 Mib
+* BruteForce. Время: 0.00027891 seconds. Память: 2.4 Mib
+* BellmanFord. Время: 0.00187654 seconds. Память: 2.8 Mib
+* Johnson. Время: 0.05234567 seconds. Память: 3.0 Mib
+* 
 ## Лицензия
 
 Проект распространяется под лицензией MIT. См. файл [`LICENSE`](LICENSE) для получения дополнительной информации.
