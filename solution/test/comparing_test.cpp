@@ -2,7 +2,7 @@
 #include <chrono>
 #include <vector>
 #include <limits>
-#include <random>  // Необходимо для генерации случайных чисел
+#include <random>
 #include <cstring>
 #include "AStarAlgorithm.h"
 #include "DijkstraAlgorithm.h"
@@ -25,33 +25,44 @@ struct Benchmark {
         std::chrono::duration<double> duration = end_time - start_time;
 
         std::string algorithmName = static_cast<std::string>(typeid(algo).name()).substr(2);
-        std::cout << algorithmName;
+        std::cout << algorithmName << '\n';
 
-        std::cout << "\nExecution time: " << duration.count() << " seconds" << std::endl;
+        std::cout << "Execution time: " << duration.count() << " seconds" << std::endl;
 
         return {start_time, end_time};
     }
 };
 
-Graph generate_large_graph(int num_vertices, int num_edges, int max_weight) {
+#include <iostream>
+#include <vector>
+#include <random>
+#include <string>
+
+Graph generate_custom_graph(int num_vertices, int num_edges, int max_weight) {
     Graph graph;
-    std::random_device rd;  // Используется для инициализации генератора
-    std::default_random_engine generator(rd());  // Генератор случайных чисел
+    std::vector<Vertex> vertices;
+
+    // Создание вершин
+    for (int i = 0; i < num_vertices; ++i) {
+        // Генерация имени вершины, можно изменить на что-то более подходящее
+        std::string vertex_name = "Vertex" + std::to_string(i);
+        Vertex vertex(i, vertex_name);
+        vertices.push_back(vertex);
+        graph.add_vertex(vertex);
+    }
+
+    // Генерация случайных рёбер
+    std::random_device rd;
+    std::default_random_engine generator(rd());
     std::uniform_int_distribution<int> vertex_distribution(0, num_vertices - 1);
     std::uniform_int_distribution<int> weight_distribution(1, max_weight);
 
-    std::vector<Vertex> vertices;
-    for (int i = 0; i < num_vertices; ++i) {
-        vertices.emplace_back(i, "Vertex" + std::to_string(i));
-        graph.add_vertex(vertices.back());
-    }
-
     for (int i = 0; i < num_edges; ++i) {
-        int src_index = vertex_distribution(generator);  // Использование генератора
+        int src_index = vertex_distribution(generator);
         int dest_index = vertex_distribution(generator);
         int weight = weight_distribution(generator);
 
-        // Ensure no self-loop
+        // Избегаем создания рёбер, ведущих в саму себя
         if (src_index != dest_index) {
             graph.add_edge(Edge(vertices[src_index], vertices[dest_index], weight));
         }
@@ -64,9 +75,9 @@ Graph generate_large_graph(int num_vertices, int num_edges, int max_weight) {
 int main(int argc, char* argv[]) {
     Graph graph;
 
-    Graph largeGraph = generate_large_graph(1000, 5000, 10);
+    Graph largeGraph = generate_custom_graph(1000, 5000, 10);
 
-    Graph veryLargeGraph = generate_large_graph(100000, 500000, 100);
+    Graph veryLargeGraph = generate_custom_graph(10000, 50000, 100);
 
     Vertex vertex0(0, "A"), vertex1(1, "B"), vertex2(2, "C"), vertex3(3, "D");
 
@@ -86,18 +97,28 @@ int main(int argc, char* argv[]) {
     if (std::strcmp(argv[1], "Dijkstra") == 0) {
         DijkstraAlgorithm dijkstra;
         benchmark.track_execution_time(graph, vertex0, vertex3, dijkstra);
+        benchmark.track_execution_time(largeGraph, vertex0, vertex3, dijkstra);
+        benchmark.track_execution_time(veryLargeGraph, vertex0, vertex3, dijkstra);
     } else if (std::strcmp(argv[1], "AStar") == 0) {
         AStarAlgorithm astar;
         benchmark.track_execution_time(graph, vertex0, vertex3, astar);
+        benchmark.track_execution_time(largeGraph, vertex0, vertex3, astar);
+        benchmark.track_execution_time(veryLargeGraph, vertex0, vertex3, astar);
     } else if (std::strcmp(argv[1], "BruteForce") == 0) {
         BruteForceAlgorithm bruteForce;
         benchmark.track_execution_time(graph, vertex0, vertex3, bruteForce);
+        benchmark.track_execution_time(largeGraph, vertex0, vertex3, bruteForce);
+        benchmark.track_execution_time(veryLargeGraph, vertex0, vertex3, bruteForce);
     } else if (std::strcmp(argv[1], "BellmanFord") == 0) {
         BellmanFordAlgorithm bellmanford;
         benchmark.track_execution_time(graph, vertex0, vertex3, bellmanford);
+        benchmark.track_execution_time(largeGraph, vertex0, vertex3, bellmanford);
+        benchmark.track_execution_time(veryLargeGraph, vertex0, vertex3, bellmanford);
     } else if (std::strcmp(argv[1], "Johnson") == 0) {
         JohnsonAlgorithm johnson;
         benchmark.track_execution_time(graph, vertex0, vertex3, johnson);
+        benchmark.track_execution_time(largeGraph, vertex0, vertex3, johnson);
+        benchmark.track_execution_time(veryLargeGraph, vertex0, vertex3, johnson);
     } else if (argc > 1) {
         std::cout << "Undefined algorithm with name: " << argv[1];
     } else {
