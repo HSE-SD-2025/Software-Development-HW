@@ -10,6 +10,7 @@
 #include "BruteForceAlgorithm.h"
 #include "JohnsonAlgorithm.h"
 #include <typeinfo>
+#include <mimalloc.h>
 
 #define time_point std::chrono::time_point<std::chrono::high_resolution_clock>
 
@@ -102,5 +103,6 @@ int main(int argc, char* argv[]) {
     } else {
         std::cout << "Need to specify algorithm name";
     }
+    mi_stats_print(nullptr);
     return 0;
 }

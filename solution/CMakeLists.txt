@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
+find_package(mimalloc REQUIRED)
 
 set(SOURCES
         src/Graph.cpp
@@ -38,4 +39,6 @@ target_link_libraries(GraphAlgorithmTests GraphAlgorithmLibrary)
 add_test(NAME GraphAlgorithmTests COMMAND GraphAlgorithmTests)
 
 add_executable(GraphAlgorithmComparingTest test/comparing_test.cpp)
-target_link_libraries(GraphAlgorithmComparingTest GraphAlgorithmLibrary)
+
+target_link_libraries(GraphAlgorithmComparingTest GraphAlgorithmLibrary mimalloc)
+
