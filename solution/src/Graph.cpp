@@ -19,9 +19,6 @@ std::string Vertex::get_name() const {
 
 Edge::Edge(Vertex source, Vertex destination, int weight)
   : source(std::move(source)), destination(std::move(destination)), weight(weight) {
-  if (weight < 0) {
-    throw std::invalid_argument("Weight cannot be negative");
-  }
 }
 
 Vertex Edge::get_source() const {

@@ -11,6 +11,11 @@ struct CompareDistance {
 };
 
 std::vector<Vertex> DijkstraAlgorithm::find_shortest_path(const Graph& graph, const Vertex& start, const Vertex& end) {
+  for (const Edge& edge: graph.get_edges()) {
+    if (edge.get_weight() < 0) {
+      throw std::invalid_argument("Weight cannot be negative");
+    }
+  }
   std::unordered_map<Vertex, int> distances;
   std::unordered_map<Vertex, Vertex> previous;
   std::priority_queue<std::pair<int, Vertex>, std::vector<std::pair<int, Vertex>>, CompareDistance> pq;
