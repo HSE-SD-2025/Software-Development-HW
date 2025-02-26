@@ -27,7 +27,7 @@ struct Benchmark {
 
         if (algo_name.substr(2) == "AStarAlgorithm") std::cout << '\t';
 
-        std::cout << "\t\texecution time: " << duration.count() << "ms" << std::endl;
+        std::cout << "\t\texecution time: " << duration.count() << " microseconds" << std::endl;
     }
 };
 
@@ -73,8 +73,8 @@ Graph generate_random_graph(int num_vertices, int num_edges, int max_weight = 10
     return graph;
 }
 
-void run_algorithms(Benchmark benchmark, DijkstraAlgorithm& dijkstra, AStarAlgorithm& astar, BruteForceAlgorithm& bruteForce, BellmanFordAlgorithm& bellmanFord) {
-    Graph graph = generate_random_graph(15, 15);
+void run_algorithms(int vertices_count, int edges_count, Benchmark benchmark, DijkstraAlgorithm& dijkstra, AStarAlgorithm& astar, BruteForceAlgorithm& bruteForce, BellmanFordAlgorithm& bellmanFord) {
+    Graph graph = generate_random_graph(vertices_count, edges_count);
 
     auto source_vertex = graph.get_vertices().front();
 
@@ -103,20 +103,15 @@ int main() {
 
     std::cout << "Running algorithms on the first random graph:\n";
 
-    run_algorithms(benchmark, dijkstra, astar, bruteForce, bellmanFord);
+    run_algorithms(10, 10, benchmark, dijkstra, astar, bruteForce, bellmanFord);
 
-    std::cout << "\n\n";
+    std::cout << "\n\nRunning algorithms on the second random graph:\n";
 
-    std::cout << "Running algorithms on the second random graph:\n";
+    run_algorithms(20, 20, benchmark, dijkstra, astar, bruteForce, bellmanFord);
 
-    run_algorithms(benchmark, dijkstra, astar, bruteForce, bellmanFord);
+    std::cout << "\n\nRunning algorithms on the third random graph:\n";
 
-    std::cout << "\n\n";
-
-
-    std::cout << "Running algorithms on the third random graph:\n";
-
-    run_algorithms(benchmark, dijkstra, astar, bruteForce, bellmanFord);
+    run_algorithms(50, 50, benchmark, dijkstra, astar, bruteForce, bellmanFord);
 
     std::cout << "Finished comparison test.\n\n";
 
