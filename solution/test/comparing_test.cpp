@@ -2,6 +2,7 @@
 #include <chrono>
 #include <vector>
 #include <limits>
+#include <algorithm>
 #include "AStarAlgorithm.h"
 #include "DijkstraAlgorithm.h"
 #include "BellmanFordAlgorithm.h"
