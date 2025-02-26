@@ -2,67 +2,119 @@
 #include <chrono>
 #include <vector>
 #include <limits>
+#include <algorithm>
 #include "AStarAlgorithm.h"
 #include "DijkstraAlgorithm.h"
 #include "BellmanFordAlgorithm.h"
 #include "BruteForceAlgorithm.h"
 #include <typeinfo>
-
-#define time_point std::chrono::time_point<std::chrono::high_resolution_clock>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <random>
 
 struct Benchmark {
-    std::pair<time_point, time_point> track_execution_time(Graph graph, Vertex source, Vertex destination, GraphAlgorithm& algo) {
+    void track_execution_time(Graph graph, Vertex source, Vertex destination, GraphAlgorithm& algo) {
         auto start_time = std::chrono::high_resolution_clock::now();
 
         std::vector<Vertex> path = algo.find_shortest_path(graph, source, destination);
         
         auto end_time = std::chrono::high_resolution_clock::now();
 
-        std::chrono::duration<double> duration = end_time - start_time;
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
 
-        std::cout << typeid(algo).name();
+        std::string algo_name = typeid(algo).name();
+        std::cout << algo_name.substr(2);
 
-        std::cout << "\nExecution time: " << duration.count() << " seconds" << std::endl;
+        if (algo_name.substr(2) == "AStarAlgorithm") std::cout << '\t';
 
-        return {start_time, end_time};
+        std::cout << "\t\texecution time: " << duration.count() << " microseconds" << std::endl;
     }
 };
 
-int main() {
+struct pair_hash {
+    template <class T1, class T2>
+    std::size_t operator () (const std::pair<T1, T2> &pair) const {
+        return std::hash<T1>()(pair.first) ^ std::hash<T2>()(pair.second);
+    }
+};
+
+Graph generate_random_graph(int num_vertices, int num_edges, int max_weight = 10) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> weight_dist(1, max_weight);
+    std::uniform_int_distribution<> vertex_dist(0, num_vertices - 1);
+
     Graph graph;
-
-    Vertex vertex0(0, "A"), vertex1(1, "B"), vertex2(2, "C"), vertex3(3, "D");
-
-    graph.add_vertex(vertex0);
-    graph.add_vertex(vertex1);
-    graph.add_vertex(vertex2);
-    graph.add_vertex(vertex3);
-
-    graph.add_edge(Edge(vertex0, vertex1, 1));
-    graph.add_edge(Edge(vertex1, vertex2, 1));
-    graph.add_edge(Edge(vertex2, vertex3, 2));
-    graph.add_edge(Edge(vertex0, vertex3, 4));
-
     
+    for (int i = 0; i < num_vertices; ++i) {
+        graph.add_vertex(Vertex(i, "Vertex_" + std::to_string(i)));
+    }
+
+    std::unordered_set<std::pair<int, int>, pair_hash> existing_edges;
+
+    while (graph.get_edges().size() < num_edges) {
+        int src_index = vertex_dist(gen);
+        int dest_index = vertex_dist(gen);
+
+        if (src_index != dest_index) {
+            auto edge_pair = std::minmax(src_index, dest_index);
+
+            if (existing_edges.find(edge_pair) == existing_edges.end()) {
+                int weight = weight_dist(gen);
+                Vertex src = graph.get_vertices()[src_index];
+                Vertex dest = graph.get_vertices()[dest_index];
+
+                graph.add_edge(Edge(src, dest, weight));
+                existing_edges.insert(edge_pair);
+            }
+        }
+    }
+
+    return graph;
+}
+
+void run_algorithms(int vertices_count, int edges_count, Benchmark benchmark, DijkstraAlgorithm& dijkstra, AStarAlgorithm& astar, BruteForceAlgorithm& bruteForce, BellmanFordAlgorithm& bellmanFord) {
+    Graph graph = generate_random_graph(vertices_count, edges_count);
+
+    auto source_vertex = graph.get_vertices().front();
+
+    auto target_vertex = graph.get_vertices().back();
+
+    benchmark.track_execution_time(graph, source_vertex, target_vertex, dijkstra);
+
+    benchmark.track_execution_time(graph, source_vertex, target_vertex, astar);
+
+    benchmark.track_execution_time(graph, source_vertex, target_vertex, bruteForce);
+
+    benchmark.track_execution_time(graph, source_vertex, target_vertex, bellmanFord);
+}
+
+int main() {
     Benchmark benchmark;
 
     DijkstraAlgorithm dijkstra;
-
-    benchmark.track_execution_time(graph, vertex0, vertex3, dijkstra);
-
     AStarAlgorithm astar;
-
-    benchmark.track_execution_time(graph, vertex0, vertex3, astar);
-
     BruteForceAlgorithm bruteForce;
+    BellmanFordAlgorithm bellmanFord;
 
-    benchmark.track_execution_time(graph, vertex0, vertex3, bruteForce);
+    std::cout << "Starting comparison test...\n";
 
-    BellmanFordAlgorithm bellmanford;
+    std::cout << "Comparing algorithms: Dijkstra, AStar, BruteForce, BellmanFord\n\n";
 
-    benchmark.track_execution_time(graph, vertex0, vertex3, bellmanford);
+    std::cout << "Running algorithms on the first random graph:\n";
 
-    
+    run_algorithms(10, 10, benchmark, dijkstra, astar, bruteForce, bellmanFord);
+
+    std::cout << "\n\nRunning algorithms on the second random graph:\n";
+
+    run_algorithms(20, 20, benchmark, dijkstra, astar, bruteForce, bellmanFord);
+
+    std::cout << "\n\nRunning algorithms on the third random graph:\n";
+
+    run_algorithms(50, 50, benchmark, dijkstra, astar, bruteForce, bellmanFord);
+
+    std::cout << "Finished comparison test.\n\n";
 
     return 0;
 }
