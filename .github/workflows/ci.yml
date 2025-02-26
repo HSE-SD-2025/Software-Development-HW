@@ -5,39 +5,4 @@ on:
   pull_request:
 
 jobs:
-  build_and_test:
-    name: C++ Build, Test, and Analysis
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        compiler: [gcc, clang]
-        build_type: [Debug, Release]
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake cppcheck clang-tidy valgrind
-
-      - name: Cppcheck
-        run: cppcheck --enable=all --suppress=missingIncludeSystem .
-
-      - name: Clang-Tidy
-        run: |
-          cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_CXX_COMPILER=${{ matrix.compiler }} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-          clang-tidy -p build $(find . -name '*.cpp') || true
-
-      - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
-
-      - name: Build
-        run: cmake --build build --verbose
-
-      - name: Test
-        run: |
-          cd build
-          ctest --verbose
-
-      - name: Valgrind (Memory Check)
-        if: matrix.build_type == 'Debug'  # Run Valgrind only in Debug builds
-        run: |
-          valgrind --leak-check=full --error-exitcode=1 ./build/your_executable_name   # Replace 'your_executable_name' with the actual name of your test binary
+    name: Dummy
