@@ -1,43 +1,46 @@
-name: C++ Build, Test, and Analysis
+name: C++ CI
 
 on:
   push:
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
-  build_and_test:
-    name: C++ Build, Test, and Analysis
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        compiler: [gcc, clang]
-        build_type: [Debug, Release]
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake cppcheck clang-tidy valgrind
-
-      - name: Cppcheck
-        run: cppcheck --enable=all --suppress=missingIncludeSystem .
-
-      - name: Clang-Tidy
+      - name: Install Dependencies
         run: |
-          cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_CXX_COMPILER=${{ matrix.compiler }} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-          clang-tidy -p build $(find . -name '*.cpp') || true
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ clang-tidy cppcheck valgrind
 
-      - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
+      - name: Create Build Directory
+        run: mkdir build
 
-      - name: Build
-        run: cmake --build build --verbose
-
-      - name: Test
+      - name: Build with CMake
         run: |
           cd build
-          ctest --verbose
+          cmake -DCMAKE_BUILD_TYPE=Release ../solution
+          cmake --build .
 
-      - name: Valgrind (Memory Check)
-        if: matrix.build_type == 'Debug'  # Run Valgrind only in Debug builds
+      - name: Run CppCheck
+        run: cppcheck --enable=all --inconclusive --std=c++17 ./solution/src ./solution/include
+
+      - name: Run clang-tidy
         run: |
-          valgrind --leak-check=full --error-exitcode=1 ./build/your_executable_name   # Replace 'your_executable_name' with the actual name of your test binary
+          clang-tidy solution/src/*.cpp -- -I./solution/include -std=c++17
+
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure
+
+      - name: Run Valgrind on Tests
+        run: |
+          cd build
+          valgrind --leak-check=full --error-exitcode=1 ./GraphAlgorithmTests
