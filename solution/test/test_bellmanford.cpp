@@ -1,5 +1,5 @@
-#include "BellmanFordAlgorithm.h"
 #include "doctest.h"
+#include "BellmanFordAlgorithm.h"
 
 TEST_CASE("Brute Force Algorithm") {
   Graph graph;
