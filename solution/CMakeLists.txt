@@ -13,6 +13,7 @@ set(SOURCES
         src/DijkstraAlgorithm.cpp
         src/BellmanFordAlgorithm.cpp
         src/AStarAlgorithm.cpp
+        src/JohnsonAlgorithm.cpp
 )
 
 add_library(GraphAlgorithmLibrary STATIC ${SOURCES})
@@ -28,6 +29,7 @@ set(TEST_SOURCES
         test/test_bidijkstra.cpp
         test/test_bellmanford.cpp
         test/test_astar.cpp
+        test/test_johnson.cpp
 )
 
 # Add test executable
