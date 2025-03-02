@@ -7,6 +7,8 @@
 #include "DijkstraAlgorithm.h"
 #include "BellmanFordAlgorithm.h"
 #include "BruteForceAlgorithm.h"
+#include "BiDijkstraAlgorithm.h"
+#include "JohnsonAlgorithm.h"
 #include <typeinfo>
 #include <string>
 #include <unordered_map>
@@ -74,7 +76,7 @@ Graph generate_random_graph(int num_vertices, int num_edges, int max_weight = 10
     return graph;
 }
 
-void run_algorithms(int vertices_count, int edges_count, Benchmark benchmark, DijkstraAlgorithm& dijkstra, AStarAlgorithm& astar, BruteForceAlgorithm& bruteForce, BellmanFordAlgorithm& bellmanFord) {
+void run_algorithms(int vertices_count, int edges_count, Benchmark benchmark, DijkstraAlgorithm& dijkstra, AStarAlgorithm& astar, BruteForceAlgorithm& bruteForce, BellmanFordAlgorithm& bellmanFord, BiDijkstraAlgorithm& bidijkstra, JohnsonAlgorithm& johnson) {
     Graph graph = generate_random_graph(vertices_count, edges_count);
 
     auto source_vertex = graph.get_vertices().front();
@@ -88,6 +90,10 @@ void run_algorithms(int vertices_count, int edges_count, Benchmark benchmark, Di
     benchmark.track_execution_time(graph, source_vertex, target_vertex, bruteForce);
 
     benchmark.track_execution_time(graph, source_vertex, target_vertex, bellmanFord);
+
+    benchmark.track_execution_time(graph, source_vertex, target_vertex, bidijkstra);
+
+    benchmark.track_execution_time(graph, source_vertex, target_vertex, johnson);
 }
 
 int main() {
@@ -97,6 +103,8 @@ int main() {
     AStarAlgorithm astar;
     BruteForceAlgorithm bruteForce;
     BellmanFordAlgorithm bellmanFord;
+    BiDijkstraAlgorithm bidijkstra;
+    JohnsonAlgorithm johnson;
 
     std::cout << "Starting comparison test...\n";
 
@@ -104,15 +112,15 @@ int main() {
 
     std::cout << "Running algorithms on the first random graph:\n";
 
-    run_algorithms(10, 10, benchmark, dijkstra, astar, bruteForce, bellmanFord);
+    run_algorithms(10, 10, benchmark, dijkstra, astar, bruteForce, bellmanFord, bidijkstra, johnson);
 
     std::cout << "\n\nRunning algorithms on the second random graph:\n";
 
-    run_algorithms(20, 20, benchmark, dijkstra, astar, bruteForce, bellmanFord);
+    run_algorithms(20, 20, benchmark, dijkstra, astar, bruteForce, bellmanFord, bidijkstra, johnson);
 
     std::cout << "\n\nRunning algorithms on the third random graph:\n";
 
-    run_algorithms(50, 50, benchmark, dijkstra, astar, bruteForce, bellmanFord);
+    run_algorithms(50, 50, benchmark, dijkstra, astar, bruteForce, bellmanFord, bidijkstra, johnson);
 
     std::cout << "Finished comparison test.\n\n";
 
