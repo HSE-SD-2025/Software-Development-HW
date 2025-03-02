@@ -3,3 +3,4 @@
 #include "Graph.h"
 #include "DijkstraAlgorithm.h"
 #include "BruteForceAlgorithm.h"
+#include "JohnsonAlgorithm.h"
