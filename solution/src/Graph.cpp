@@ -34,13 +34,15 @@ int Edge::get_weight() const {
 
 void Graph::add_vertex(const Vertex &vertex) {
   vertices.push_back(vertex);
-  vertex_map[vertex] = std::vector<Edge>();
+  outgoing_edges[vertex] = std::vector<Edge>();
+  incoming_edges[vertex] = std::vector<Edge>();
 }
 
 void Graph::add_edge(const Edge &edge) {
   edges.push_back(edge);
   pairs_to_edges[{edge.get_source(),edge.get_destination()}] = edge;
-  vertex_map[edge.get_source()].push_back(edge);
+  outgoing_edges[edge.get_source()].push_back(edge);
+  incoming_edges[edge.get_destination()].push_back(edge);
 }
 
 const std::vector<Vertex> &Graph::get_vertices() const {
@@ -56,15 +58,19 @@ const Edge & Graph::get_edge_between(Vertex first,  Vertex second)  {
 
 std::vector<Vertex> Graph::get_neighbors(const Vertex &vertex) const {
   std::vector<Vertex> neighbors;
-  for (const auto &edge: vertex_map.at(vertex)) {
+  for (const auto &edge: outgoing_edges.at(vertex)) {
     if (edge.get_source() == vertex) {
       neighbors.push_back(edge.get_destination());
     }
   }
   return neighbors;
 }
-std::vector<Edge> Graph::get_neighbor_edges(const Vertex &vertex) const {
-  return vertex_map.at(vertex);
+std::vector<Edge> Graph::get_outgoing_edges(const Vertex &vertex) const {
+  return outgoing_edges.at(vertex);
+}
+
+std::vector<Edge> Graph::get_incoming_edges(const Vertex &vertex) const {
+  return incoming_edges.at(vertex);
 }
 
 size_t std::hash<Vertex>::operator()(const Vertex &v) const noexcept {

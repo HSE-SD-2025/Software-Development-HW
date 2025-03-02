@@ -44,7 +44,7 @@ void BruteForceAlgorithm::findAllPaths(const Graph &graph,
   if (current == end) {
     allPaths.push_back(currentPath);
   } else {
-    std::vector<Edge> neighbor_edges = graph.get_neighbor_edges(current);
+    std::vector<Edge> neighbor_edges = graph.get_outgoing_edges(current);
     for (const auto &neighbor: neighbor_edges) {
       if (!visited[neighbor.get_destination()]) {
         currentPath.push_back(neighbor);
