@@ -50,7 +50,7 @@ std::vector<Vertex> AStarAlgorithm::find_shortest_path(const Graph& graph, const
 
         closedSet.insert(current);
 
-        for (const auto& edge : graph.get_neighbor_edges(current)) {
+        for (const auto& edge : graph.get_outgoing_edges(current)) {
             Vertex neighbor = edge.get_destination();
 
             if (closedSet.count(neighbor)) {

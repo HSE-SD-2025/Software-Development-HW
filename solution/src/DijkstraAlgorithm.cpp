@@ -39,7 +39,7 @@ std::vector<Vertex> DijkstraAlgorithm::find_shortest_path(const Graph &graph,
       break;
     }
 
-    for (const auto &neighbor_edge: graph.get_neighbor_edges(current)) {
+    for (const auto &neighbor_edge: graph.get_outgoing_edges(current)) {
       Vertex neighbor = neighbor_edge.get_destination();
       int weight = neighbor_edge.get_weight();
       int alt = distances[current] + weight;

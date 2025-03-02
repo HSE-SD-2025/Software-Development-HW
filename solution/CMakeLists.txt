@@ -9,6 +9,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 set(SOURCES
         src/Graph.cpp
         src/BruteForceAlgorithm.cpp
+        src/BiDijkstraAlgorithm.cpp
         src/DijkstraAlgorithm.cpp
         src/BellmanFordAlgorithm.cpp
         src/AStarAlgorithm.cpp
@@ -24,6 +25,7 @@ set(TEST_SOURCES
         test/doctest_main.cpp
         test/test_graph.cpp
         test/test_dijkstra.cpp
+        test/test_bidijkstra.cpp
         test/test_bellmanford.cpp
         test/test_astar.cpp
 )
