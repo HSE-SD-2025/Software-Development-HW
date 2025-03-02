@@ -19,8 +19,10 @@ std::vector<Vertex> BiDijkstraAlgorithm::find_shortest_path(const Graph &graph, 
         }
     }
 
-    std::unordered_map<Vertex, int[2]> distances;
-    std::unordered_map<Vertex, Vertex[2]> previous;
+    // Following data structures store corresponding info for 2 approaches:
+    // [0] - going from start forward, [1] - from end backward
+    std::unordered_map<Vertex, int[2]> distances; // distances to each vertex from start, end
+    std::unordered_map<Vertex, Vertex[2]> previous; // previous vertex on shortest path from start, end
     std::priority_queue<std::pair<int, Vertex>, std::vector<std::pair<int, Vertex> >, CompareDistance>
         pq[2];
 
@@ -46,15 +48,15 @@ std::vector<Vertex> BiDijkstraAlgorithm::find_shortest_path(const Graph &graph, 
 
         if (current[0].get_id() != -1 && current[0] == current[1]) {
             middle = current[0];
-            break;
+            break; // if current vertex is the same, it is the middle automatically
         }
 
-        std::vector<Vertex> middle_possibilities;
+        std::vector<Vertex> middle_possibilities; // possible middle vertices on path; of size no more than 2
         if (previous[current[0]][1].get_id() != -1) {
-            middle_possibilities.push_back(current[0]);
+            middle_possibilities.push_back(current[0]); // from start
         }
         if (previous[current[1]][0].get_id() != -1) {
-            middle_possibilities.push_back(current[1]);
+            middle_possibilities.push_back(current[1]); // from end
         }
         if (!middle_possibilities.empty()) {
             std::sort(middle_possibilities.begin(), middle_possibilities.end(), [&distances](const auto& lhs, const auto& rhs){
@@ -64,7 +66,7 @@ std::vector<Vertex> BiDijkstraAlgorithm::find_shortest_path(const Graph &graph, 
             break;
         }
 
-
+        // forward iteration from start
         for (const auto &neighbor_edge: graph.get_outgoing_edges(current[0])) {
             Vertex neighbor = neighbor_edge.get_destination();
             int weight = neighbor_edge.get_weight();
@@ -76,6 +78,7 @@ std::vector<Vertex> BiDijkstraAlgorithm::find_shortest_path(const Graph &graph, 
             }
         }
 
+        // backward iteration from end
         for (const auto &neighbor_edge: graph.get_incoming_edges(current[1])) {
             Vertex neighbor = neighbor_edge.get_source();
             int weight = neighbor_edge.get_weight();

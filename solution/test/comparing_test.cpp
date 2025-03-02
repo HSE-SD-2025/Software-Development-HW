@@ -4,6 +4,7 @@
 #include <limits>
 #include "AStarAlgorithm.h"
 #include "DijkstraAlgorithm.h"
+#include "BiDijkstraAlgorithm.h"
 #include "BellmanFordAlgorithm.h"
 #include "BruteForceAlgorithm.h"
 #include <typeinfo>
@@ -49,6 +50,10 @@ int main() {
     DijkstraAlgorithm dijkstra;
 
     benchmark.track_execution_time(graph, vertex0, vertex3, dijkstra);
+
+    BiDijkstraAlgorithm bidijkstra;
+
+    benchmark.track_execution_time(graph, vertex0, vertex3, bidijkstra);
 
     AStarAlgorithm astar;
 
