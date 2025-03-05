@@ -18,6 +18,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake g++ clang-tidy cppcheck valgrind
+          sudo apt-get install -y libmimalloc-dev
 
       - name: Create Build Directory
         run: mkdir build
