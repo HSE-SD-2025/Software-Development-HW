@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
+find_package(mimalloc REQUIRED)
 
 set(SOURCES
         src/Graph.cpp
@@ -12,6 +13,7 @@ set(SOURCES
         src/DijkstraAlgorithm.cpp
         src/BellmanFordAlgorithm.cpp
         src/AStarAlgorithm.cpp
+        src/JohnsonAlgorithm.cpp
 )
 
 add_library(GraphAlgorithmLibrary STATIC ${SOURCES})
@@ -26,6 +28,7 @@ set(TEST_SOURCES
         test/test_dijkstra.cpp
         test/test_bellmanford.cpp
         test/test_astar.cpp
+        test/test_johnson.cpp
 )
 
 # Add test executable
@@ -36,4 +39,6 @@ target_link_libraries(GraphAlgorithmTests GraphAlgorithmLibrary)
 add_test(NAME GraphAlgorithmTests COMMAND GraphAlgorithmTests)
 
 add_executable(GraphAlgorithmComparingTest test/comparing_test.cpp)
-target_link_libraries(GraphAlgorithmComparingTest GraphAlgorithmLibrary)
+
+target_link_libraries(GraphAlgorithmComparingTest GraphAlgorithmLibrary mimalloc)
+

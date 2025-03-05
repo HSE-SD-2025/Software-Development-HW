@@ -1,5 +1,5 @@
-#include "Graph.h"
 #include "doctest.h"
+#include "Graph.h"
 
 TEST_CASE("Graph Class") {
   Graph graph;

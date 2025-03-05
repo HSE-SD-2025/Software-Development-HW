@@ -1,5 +1,5 @@
-#include "BruteForceAlgorithm.h"
 #include "doctest.h"
+#include "BruteForceAlgorithm.h"
 
 TEST_CASE("Brute Force Algorithm") {
   Graph graph;
